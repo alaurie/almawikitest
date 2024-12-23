@@ -1,6 +1,7 @@
 ---
-title: 'Help translating site'
+title: "Help translating site"
 ---
+
 # Help translating the site
 
 The [almalinux.org website](https://almalinux.org/) localization and translation is managed by [Weblate](https://hosted.weblate.org/engage/almalinux/) and supported by contributors. The translations that get submitted through Weblate are automatically submitted to the [almalinux.org repo](https://github.com/AlmaLinux/almalinux.org) as a pull request.
@@ -31,7 +32,7 @@ Then choose the language you want to translate to. For this example, I'll choose
 
 After translating from English to your chosen language (.e.g Hebrew) press on "Save and continue" and your translation will be sent eventually as a PR to the [almalinux.org repo](https://github.com/AlmaLinux/almalinux.org) and reviewed by a member of the marketing SIG or another team lead, then merged as appropriate.
 
-##  Request new languages 
+## Request new languages
 
 You can request new languages to be added by creating a ticket in [GitHub issues](https://github.com/AlmaLinux/almalinux.org/issues), like so:
 
