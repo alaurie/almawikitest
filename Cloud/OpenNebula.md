@@ -1,6 +1,7 @@
 ---
-title: 'OpenNebula'
+title: "OpenNebula"
 ---
+
 # AlmaLinux OS OpenNebula image
 
 The OpenNebula image contains the OpenNebula addons repository as delivered via the AlmaLinux [Cloud SIG](https://wiki.almalinux.org/sigs/Cloud.html). The repo provides the latest upstream version of the OpenNebula Linux VM Contextualization to prepare the networking in the running guest virtual machine, configure SSH keys, set passwords, run custom start scripts, `onesysprep`, etc.
@@ -34,9 +35,11 @@ public key first.
 If you are using an AlmaLinux OS-powered system, you may skip the command
 below because you already have the key stored in the `/etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux` file.
 Run the following command instead to import the key:
+
 ```shell
 gpg --import /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
 ```
+
 :::
 
 ```shell
@@ -121,9 +124,11 @@ public key first.
 If you are using an AlmaLinux OS-powered system, you may skip the command
 below because you already have the key stored in the `/etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9` file.
 Run the following command instead to import the key:
+
 ```shell
 gpg --import /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9
 ```
+
 :::
 
 ```shell

@@ -1,6 +1,7 @@
 ---
-title: 'Generic Cloud (Cloud-init)'
+title: "Generic Cloud (Cloud-init)"
 ---
+
 # AlmaLinux OS Generic Cloud (Cloud-init) image
 
 The Generic Cloud image is a general purpose virtual machine image that
@@ -42,10 +43,12 @@ public key first.
 :::tip
 If you are using an AlmaLinux OS-powered system, you may skip the command
 below because you already have the key stored in the `/etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux` file.
- Run the following command instead to import the key:
+Run the following command instead to import the key:
+
 ```shell
 gpg --import /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
 ```
+
 :::
 
 ```shell
@@ -129,10 +132,12 @@ public key first.
 :::tip
 If you are using an AlmaLinux OS-powered system, you may skip the command
 below because you already have the key stored in the `/etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9` file.
- Run the following command instead to import the key:
+Run the following command instead to import the key:
+
 ```shell
 gpg --import /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux-9
 ```
+
 :::
 
 ```shell
