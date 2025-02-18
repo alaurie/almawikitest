@@ -1,21 +1,21 @@
 # A03 R8 ❯ NVIDIA: Installation on 8.x
 
-<small>ℹ️ This article is part of AlmaLinux [System Series](/series/).</small>
+ℹ️ This article is part of AlmaLinux [System Series](../../series/).
 
-<hr>
-| 💡 | Experience Level  | ⭐☆☆☆☆ |
-|--- | --------- | --------|
-| 📆 | <small>Last modified </small>| 2024-02-02
-| 🔧 | <small>Tested by <br> ↳ version \| platform \| date </small>| <small>[none](mailto:none@almalinux.org) <br>  ↳ 9.x \| x86_64 \| 2023-05-xx </small>|
-<br>
+***
+
+\| 💡 | Experience Level | ⭐☆☆☆☆ | |--- | --------- | --------| | 📆 | Last modified | 2024-02-02 | 🔧 | Tested by\
+↳ version \\| platform \\| date | \[none]\(mailto:none@almalinux.org)\
+↳ 9.x \\| x86\_64 \\| 2023-05-xx |\
+
 
 ## 🌟 Introduction
 
 This is a dedicated example for the AlmaLinux 8.x series, demonstrating how to install NVIDIA graphics driver using one of three variants:
 
-- Variant I: Precompiled/Binary Driver
-- Variant II: Compile Driver Source
-- Variant III : NVIDIA .run Driver Installation Guide
+* Variant I: Precompiled/Binary Driver
+* Variant II: Compile Driver Source
+* Variant III : NVIDIA .run Driver Installation Guide
 
 ## 🔖 Variant I: Install Binary Driver
 
@@ -54,9 +54,7 @@ sudo dnf install freeglut-devel libX11-devel libXi-devel libXmu-devel make mesa-
 
 ## 🔖 Variant II: Compile Driver Source
 
-::: tip
-Installing NVIDIA drivers on AlmaLinux 8 requires using ELRepo Mainline kernel.
-:::
+::: tip Installing NVIDIA drivers on AlmaLinux 8 requires using ELRepo Mainline kernel. :::
 
 ### ELRepo related steps
 
@@ -165,8 +163,7 @@ sudo grub2-mkconfig -o /boot/efi/EFI/almalinux/grub.cfg
 sudo reboot
 ```
 
-➡️ Install the .run driver :
-**Download the latest driver (**Verify compatibility with your GPU**):**
+➡️ Install the .run driver : **Download the latest driver (Verify compatibility with your GPU):**
 
 https://www.nvidia.com/en-us/drivers/unix/linux-amd64-display-archive/
 
@@ -194,17 +191,15 @@ sudo init 3
 
 **Option 1** :
 
-Install via the Console Text UI by following the prompt:
-**Replace XXX.XXX.XX with the actual driver version.**
+Install via the Console Text UI by following the prompt: **Replace XXX.XXX.XX with the actual driver version.**
 
-sudo ./NVIDIA-LINUX-x86_64-XXX.XXX.XX.run
+sudo ./NVIDIA-LINUX-x86\_64-XXX.XXX.XX.run
 
 **Option 2** :
 
-Install silently via console :
-**Replace XXX.XXX.XX with the actual driver version.**
+Install silently via console : **Replace XXX.XXX.XX with the actual driver version.**
 
-sudo ./NVIDIA-Linux-x86_64-XXX.XXX.XX.run --accept-license --silent --run-nvidia-xconfig --dkms
+sudo ./NVIDIA-Linux-x86\_64-XXX.XXX.XX.run --accept-license --silent --run-nvidia-xconfig --dkms
 
 ➡️ Update the initramfs (**This is needed as of 535.XXX.XX drivers**) :
 
@@ -247,15 +242,15 @@ sudo echo "Categories=System;Settings;X-Red-Hat-Base-Utilities;" | sudo tee -a /
 
 ## 📚 Further Reading and Next Steps
 
-<u>Get Back:</u>
+Get Back:
 
-- AlmaLinux System Series ❯ [NVIDIA Driver Installation Guide](SystemSeriesA03.md)
+* AlmaLinux System Series ❯ [NVIDIA Driver Installation Guide](SystemSeriesA03.md)
 
-<u>In-depth Resources:</u>
+In-depth Resources:
 
-- AlmaLinux System Series ❯ [NVIDIA: Installation on 9.x](SystemSeriesA03R9.md)
+* AlmaLinux System Series ❯ [NVIDIA: Installation on 9.x](SystemSeriesA03R9.md)
 
-<u>Related Resources:</u>
+Related Resources:
 
-- AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
-- AlmaLinux Firewalld Series ❯ [A Beginner's Guide](SystemSeriesA02.md)
+* AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
+* AlmaLinux Firewalld Series ❯ [A Beginner's Guide](SystemSeriesA02.md)

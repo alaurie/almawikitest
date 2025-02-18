@@ -1,49 +1,48 @@
 # A02 R8 ❯ AlmaLinux 8.x Installation
 
-<small>ℹ️ This article is part of AlmaLinux [Nginx Series](/series/).</small>
+ℹ️ This article is part of AlmaLinux [Nginx Series](../../series/).
 
-<hr>
-| 💡 | Experience Level  | ⭐☆☆☆☆ |
-|--- | --------- | --------|
-| 📆 | <small>Last modified </small>| 2023-05-16
-| 🔧 | <small>Tested by <br> ↳ version \| platform \| date </small>| <small>[Pawel Suchanecki](mailto:psuchanecki@almalinux.org) <br>  ↳ 9.1 \| x86_64 \| 2023-04-21 </small>|
-<br>
+***
+
+\| 💡 | Experience Level | ⭐☆☆☆☆ | |--- | --------- | --------| | 📆 | Last modified | 2023-05-16 | 🔧 | Tested by\
+↳ version \\| platform \\| date | \[Pawel Suchanecki]\(mailto:psuchanecki@almalinux.org)\
+↳ 9.1 \\| x86\_64 \\| 2023-04-21 |\
+
 
 ## 🌟 Introduction
 
 This is a dedicated example for the **AlmaLinux 8.x series**, demonstrating how to install Nginx using one of the three variants:
 
-- Variant I: AppStream non-module
-- Variant II: AppStream module
-- Variant III: Nginx mainline repository
+* Variant I: AppStream non-module
+* Variant II: AppStream module
+* Variant III: Nginx mainline repository
 
 ## 📝 Installation instructions
 
 ### System Updates First!
 
-::: warning
-Please make sure to run **`sudo dnf update`** before proceeding with any other installation or configuration steps to ensure that your system is up-to-date and any known security vulnerabilities or bugs are patched.
-:::
+::: warning Please make sure to run **`sudo dnf update`** before proceeding with any other installation or configuration steps to ensure that your system is up-to-date and any known security vulnerabilities or bugs are patched. :::
 
 ### 📖 Available Nginx Versions (AlmaLinux OS 8.7)
 
 Different Nginx server versions are available to install depending on the installation variant.
 
-|     | Installation Variant | Nginx Versions available | Notes                                                                                          |
-| --- | -------------------- | ------------------------ | ---------------------------------------------------------------------------------------------- |
-| 🟥  | AppStream non-module | 1.14                     | Default version is outdated and does not get updates! Inadvisable.                             |
-| 🟩  | AppStream module     | 1.14 -- 1.20             | Module version are getting the security updates. **The recommended method**.                   |
-| 🟨  | Nginx mainline repo  | 1.15.2 -- 1.23.3¹        | You always get latest version of Nginx avaiable. Second good (small chance of incompatibilty). |
+|    | Installation Variant | Nginx Versions available | Notes                                                                                          |
+| -- | -------------------- | ------------------------ | ---------------------------------------------------------------------------------------------- |
+| 🟥 | AppStream non-module | 1.14                     | Default version is outdated and does not get updates! Inadvisable.                             |
+| 🟩 | AppStream module     | 1.14 -- 1.20             | Module version are getting the security updates. **The recommended method**.                   |
+| 🟨 | Nginx mainline repo  | 1.15.2 -- 1.23.3¹        | You always get latest version of Nginx avaiable. Second good (small chance of incompatibilty). |
 
 ¹ current version at the time of testing (1.23.4 already available at Nginx.org)
 
-<u>Architecture Compatibility</u>
+Architecture Compatibility
+
 | Architecture | Supported |
-|-----|----|
-| Aarch64 | ✅ |
-| PowerPC | ❌ |
-| S390X | ✅ |
-| X86_64 | ✅ |
+| ------------ | --------- |
+| Aarch64      | ✅         |
+| PowerPC      | ❌         |
+| S390X        | ✅         |
+| X86\_64      | ✅         |
 
 ### 🔖 Variant I - AppStream Non-module Install
 
@@ -451,10 +450,7 @@ Complete!
 sudo dnf install nginx
 ```
 
-Expected output (install):
-:::warning
-TODO: EXAMPLE IS MISSING!
-:::s
+Expected output (install): :::warning TODO: EXAMPLE IS MISSING! :::s
 
 ### ➡️ Test installation
 
@@ -468,11 +464,9 @@ Expected output (test)
 nginx version: nginx/1.20.1
 ```
 
-:::warning
-Note: If you switch between different versions of a module, you may need to <u>reset its state</u> using the command `dnf module reset <module-name>` to enable installing another version.
+:::warning Note: If you switch between different versions of a module, you may need to reset its state using the command `dnf module reset <module-name>` to enable installing another version.
 
-In Nginx case `<module-name>` is `nginx`.
-:::
+In Nginx case `<module-name>` is `nginx`. :::
 
 ### 🔖 Variant III: Main-line Repository Install
 
@@ -492,7 +486,7 @@ sudo rpm --import https://nginx.org/keys/nginx_signing.key
 sudo tee /etc/yum.repos.d/nginx.repo
 ```
 
-** Populate the new repo file with below text (copy-paste & press `Ctrl+D`)**
+\*\* Populate the new repo file with below text (copy-paste & press `Ctrl+D`)\*\*
 
 ```
 [nginx-mainline]
@@ -504,9 +498,7 @@ gpgkey=https://nginx.org/keys/nginx_signing.key
 module_hotfixes=true
 ```
 
-::: tip
-When editing the file, you can change `enabled=0` setting it to `1`. With that change you can skip next two steps (installing `dnf-utils` and running `dnf config-manager`).
-:::
+::: tip When editing the file, you can change `enabled=0` setting it to `1`. With that change you can skip next two steps (installing `dnf-utils` and running `dnf config-manager`). :::
 
 ### ➡️ Install `dnf-uils`
 
@@ -598,18 +590,18 @@ nginx version: nginx/1.23.3
 
 ## 📚 Further reading and Next Steps
 
-<u>Get Back:</u>
+Get Back:
 
-- AlmaLinux Nginx Series ❯ [A Beginner's Guide](NginxSeriesA01.md)
+* AlmaLinux Nginx Series ❯ [A Beginner's Guide](NginxSeriesA01.md)
 
-<u>In-depth Resources:</u>
+In-depth Resources:
 
-- AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.1 Installation](NginxSeriesA02R91.md)
-- AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.2 Installation](NginxSeriesA02R92.md)
-- AlmaLinux Nginx Series ❯ [Default Configuration Guide](NginxSeriesA03.md)
-- AlmaLinux Nginx Series ❯ [Secure Nginx Deployment](NginxSeriesA04P1.md)
+* AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.1 Installation](NginxSeriesA02R91.md)
+* AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.2 Installation](NginxSeriesA02R92.md)
+* AlmaLinux Nginx Series ❯ [Default Configuration Guide](NginxSeriesA03.md)
+* AlmaLinux Nginx Series ❯ [Secure Nginx Deployment](NginxSeriesA04P1.md)
 
-<u>Related Resources:</u>
+Related Resources:
 
-- AlmaLinux Firewalld Series ❯ [A Beginner's Guide](../system/SystemSeriesA02.md)
-- AlmaLinux System Series ❯ [Application Streams](../system/SystemSeriesA01.md)
+* AlmaLinux Firewalld Series ❯ [A Beginner's Guide](../system/SystemSeriesA02.md)
+* AlmaLinux System Series ❯ [Application Streams](../system/SystemSeriesA01.md)

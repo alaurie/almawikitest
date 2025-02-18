@@ -1,20 +1,18 @@
 ---
-title: "Installing EPEL and RPM Fusion"
+title: Installing EPEL and RPM Fusion
 ---
 
 # Installing EPEL and RPM Fusion
 
 This guide describes how to install _Extra Packages for Enterprise Linux (EPEL)_ and _RPM Fusion_, two software repositories that contain software that is not included by AlmaLinux (like codecs).
 
-:::warning
-These third-party software repositories may not be supported by AlmaLinux's [ELevate Project](/elevate/).
-:::
+:::warning These third-party software repositories may not be supported by AlmaLinux's [ELevate Project](../Elevate/). :::
 
 ## Step 1: Install EPEL.
 
 Installing EPEL is required for RPM Fusion.
 
-1. Follow the instructions [described here](/repos/Extras) to install EPEL.
+1. Follow the instructions [described here](../repos/Extras/) to install EPEL.
 
 ## Step 2: Install (and verify) the RPM Fusion GPG keys
 
@@ -26,7 +24,7 @@ Downloading and verifying the RPM Fusion GPG keys ensures that the packages you 
 $ sudo dnf install distribution-gpg-keys
 ```
 
-- If you get a prompt to import a GPG key, compare the key you recived to [Fedora's package signing keys](https://fedoraproject.org/security/). Make sure the key on the webpage is the correct EPEL version as the one described on the userid, and make sure the fingerprints match.
+* If you get a prompt to import a GPG key, compare the key you recived to [Fedora's package signing keys](https://fedoraproject.org/security/). Make sure the key on the webpage is the correct EPEL version as the one described on the userid, and make sure the fingerprints match.
 
 2. Import the RPM Fusion keys with `rpmkeys`
 

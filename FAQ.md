@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: FAQ
 ---
 
 # Frequently asked questions
@@ -18,7 +18,7 @@ In July of 2023, [we announced](https://almalinux.org/blog/future-of-almalinux/)
 
 ### Is AlmaLinux OS FIPS-140 compliant??
 
-AlmaLinux OS 9.2 is FIPS-140 compliant. Read more in this blog post: [FIPS Validation for AlmaLinux OS](https://almalinux.org/blog/2023-09-19-fips-validation-for-almalinux/)
+AlmaLinux OS 9.2 is FIPS-140 compliant. Read more in this blog post: [FIPS Validation for AlmaLinux OS](https://almalinux.org/blog/2023-09-19-fips-validation-for-almalinux/)
 
 ### Where did the name "AlmaLinux" come from?
 
@@ -38,30 +38,27 @@ Our governance is under a 501(c)(6) non-profit organization to facilitate our ob
 
 ### What architectures and platforms do you support?
 
-AlmaLinux currently supports four architectures - x86_64, aarch64, ppc64le, and s390x - providing full parity with upstream. In addition, we provide a wide range of other images and repositories: traditional ISOs, cloud and container images, live media, WSL - Windows Subsystem for Linux, and Raspberry Pi.
+AlmaLinux currently supports four architectures - x86\_64, aarch64, ppc64le, and s390x - providing full parity with upstream. In addition, we provide a wide range of other images and repositories: traditional ISOs, cloud and container images, live media, WSL - Windows Subsystem for Linux, and Raspberry Pi.
 
 ### Is AlmaLinux secure?
 
-AlmaLinux provides a commitment to security updates and bug fixes for a period of 10 years for each major version. Moreover, AlmaLinux provides [Errata](/documentation/errata.md), [public OVAL streams](/documentation/oval-streams.md), [OpenSCAP](/documentation/openscap-guide.md) and SCAP Workbench packages, including the availability of the official [CIS Benchmark for AlmaLinux](https://www.cisecurity.org/benchmark/almalinuxos_linux). AlmaLinux has [SBOM](/documentation/sbom-guide.md) integrated into our build pipeline, facilitating software supply chain security.
+AlmaLinux provides a commitment to security updates and bug fixes for a period of 10 years for each major version. Moreover, AlmaLinux provides [Errata](Documentation/Errata.md), [public OVAL streams](<Documentation/Oval Streams.md>), [OpenSCAP](<Documentation/OpenSCAP Guide.md>) and SCAP Workbench packages, including the availability of the official [CIS Benchmark for AlmaLinux](https://www.cisecurity.org/benchmark/almalinuxos_linux). AlmaLinux has [SBOM](<Documentation/SBOM Guide.md>) integrated into our build pipeline, facilitating software supply chain security.
 
 ### Where does AlmaLinux get package sources? How AlmaLinux is built?
 
 The process in general looks like this:
 
-- We clone the upstream sources from the CentOS git repositories. These are the same source that Red Hat uses to build their packages.
-- De-branding: any trademarks are replaced at this point, and the `.alma` postfix is added to the end of the modified packages' "Release" field to distinguish our packages from upstream ones. You can also check the [Modified packages](/development/Modified-packages.md) page for more details.
-  :::tip
-  Note: Most RPMs are rebuilt directly from the sources. The rebranding is required when any of the text/visual displays says Red Hat or RHN license manager enforcements.
-  :::
-- Our build system [Builds](https://build.almalinux.org/) packages with notarization (SBOM).
-- Our testing system runs automated package [Tests](https://github.com/AlmaLinux/alts) & we fix issues.
-- Release!
+* We clone the upstream sources from the CentOS git repositories. These are the same source that Red Hat uses to build their packages.
+* De-branding: any trademarks are replaced at this point, and the `.alma` postfix is added to the end of the modified packages' "Release" field to distinguish our packages from upstream ones. You can also check the [Modified packages](<Development/Modified Packages.md>) page for more details. :::tip Note: Most RPMs are rebuilt directly from the sources. The rebranding is required when any of the text/visual displays says Red Hat or RHN license manager enforcements. :::
+* Our build system [Builds](https://build.almalinux.org/) packages with notarization (SBOM).
+* Our testing system runs automated package [Tests](https://github.com/AlmaLinux/alts) & we fix issues.
+* Release!
 
 ### How do I migrate a single host from CentOS to AlmaLinux?
 
 AlmaLinux developed a [migration tool](https://github.com/AlmaLinux/almalinux-deploy) to make it simple to migrate to AlmaLinux from other Linux distributions including CentOS and CentOS Stream.
 
-You can read more details and find guide steps on the [Migration](/documentation/migration-guide.md) wiki page.
+You can read more details and find guide steps on the [Migration](<Documentation/Migration Guide.md>) wiki page.
 
 ### How do I migrate an entire fleet of servers from CentOS to AlmaLinux?
 
@@ -71,7 +68,7 @@ Since AlmaLinux is compatible with RHEL®, your applications and services should
 
 The AlmaLinux community has developed the ELevate project as an initiative to support migrations between a major version of RHEL-derivatives. It uses the [Leapp utility](https://leapp.readthedocs.io/) and a few [patches](https://github.com/AlmaLinux/leapp-repository/commits/almalinux) to support migration from CentOS are used to perform the upgrade.
 
-Check the [ELevate page](/elevate/README.md) for the list of the available migration directions and for the [Quickstart Guide](/elevate/ELevate-quickstart-guide.md).
+Check the [ELevate page](Elevate/) for the list of the available migration directions and for the [Quickstart Guide](Elevate/ELevate-quickstart-guide.md).
 
 ### How long will AlmaLinux be supported?
 
@@ -88,7 +85,7 @@ Each minor version reaches end of life when the new version is released. For exa
 
 #### I found a bug in RHEL; can I contribute the bug fix to AlmaLinux?
 
-Since AlmaLinux aims to be as close to RHEL as possible, it should have nearly the same bugs as the current release of RHEL. AlmaLinux recommends following an "upstream first" approach to fix these bugs by testing against CentOS Stream, and submitting them to [CentOS Stream](https://wiki.centos.org/ReportBugs). For more information, please, see the [Contribute page](/contribute.html#help-with-reporting-bugs-and-making-fixes).
+Since AlmaLinux aims to be as close to RHEL as possible, it should have nearly the same bugs as the current release of RHEL. AlmaLinux recommends following an "upstream first" approach to fix these bugs by testing against CentOS Stream, and submitting them to [CentOS Stream](https://wiki.centos.org/ReportBugs). For more information, please, see the [Contribute page](contribute.html#help-with-reporting-bugs-and-making-fixes).
 
 #### Bug Tracker
 
@@ -102,8 +99,8 @@ Since AlmaLinux attempts to be as close to RHEL as possible, it does not add pac
 
 Having codenames for operating systems has a long history and has been adopted widely. While they aren't needed for us specifically, we keep them as part of our distribution both as an homage to our roots, and because the add a bit of levity to our work. Each minor version of AlmaLinux follows a specific pattern.
 
-- AlmaLinux 8 - blue color + cat name
-- AlmaLinux 9 - green color + cat name
+* AlmaLinux 8 - blue color + cat name
+* AlmaLinux 9 - green color + cat name
 
 Icelandic people believed that cats can eat you for Christmas dinner.
 

@@ -1,20 +1,19 @@
 # A02 ❯ Firewalld: A Beginner's Guide
 
-<small>ℹ️ This article is part of AlmaLinux [System Series](/series/).</small>
+ℹ️ This article is part of AlmaLinux [System Series](../../series/).
 
-<hr>
-| 💡 | Experience Level  | ⭐☆☆☆☆ |
-|--- | --------- | --------|
-| 📆 | <small>Last modified </small>| 2023-05-10
-| 🔧 | <small>Tested by <br> ↳ version \| platform \| date </small>| <small>[Pawel Suchanecki](mailto:psuchanecki@almalinux.org) <br>  ↳ 9.1 \| x86_64 \| 2023-04-21 </small>|
-<br>
+***
+
+\| 💡 | Experience Level | ⭐☆☆☆☆ | |--- | --------- | --------| | 📆 | Last modified | 2023-05-10 | 🔧 | Tested by\
+↳ version \\| platform \\| date | \[Pawel Suchanecki]\(mailto:psuchanecki@almalinux.org)\
+↳ 9.1 \\| x86\_64 \\| 2023-04-21 |\
+
 
 ## 🌟 Introduction
 
 Firewalld is a dynamic firewall management tool that is enabled by default in AlmaLinux. It provides a flexible and powerful interface for configuring network traffic filtering rules and allows system administrators to easily manage firewall settings without needing to know the specifics of iptables or nftables. Firewalld uses zones, services, ports, source and destination, and masquerading/NAT to define firewall rules and secure network traffic. With firewalld, system administrators can create custom firewall configurations, add or remove services and ports, and manage network zones to secure their systems against unauthorized access and potential security threats.
 
-:::tip
-On AlmaLinux OS, the Firewalld packet filtering service is enabled by default.
+:::tip On AlmaLinux OS, the Firewalld packet filtering service is enabled by default.
 
 :::details
 
@@ -54,18 +53,17 @@ Firewalld implements a number of fundamental concepts to provide flexible and po
 
 List of the predefined zones along with their respective trust levels and descriptions:
 
-- 🟥 `drop` - Blocks all incoming connections, allows only outgoing connections.
-- 🟥 `block` - Similar to drop, but rejects incoming requests.
-- 🟥 `public` - Allows selective incoming connections on a case-by-case basis.
-- 🟥 `external` - Enables NAT masquerading for private network accessibility.
-- 🟨 `internal` - Fairly trustworthy computers, additional services may be available.
-- 🟨 `dmz` - Permits specific incoming connections.
-- 🟩 `work` - Trusts most computers in the network, allows more services.
-- 🟩 `home` - Trusts most other computers, allows additional services.
-- 🟩 `trusted` - Trusts all machines in the network, use sparingly.
+* 🟥 `drop` - Blocks all incoming connections, allows only outgoing connections.
+* 🟥 `block` - Similar to drop, but rejects incoming requests.
+* 🟥 `public` - Allows selective incoming connections on a case-by-case basis.
+* 🟥 `external` - Enables NAT masquerading for private network accessibility.
+* 🟨 `internal` - Fairly trustworthy computers, additional services may be available.
+* 🟨 `dmz` - Permits specific incoming connections.
+* 🟩 `work` - Trusts most computers in the network, allows more services.
+* 🟩 `home` - Trusts most other computers, allows additional services.
+* 🟩 `trusted` - Trusts all machines in the network, use sparingly.
 
-:::details
-List all defined zones:
+:::details List all defined zones:
 
 ```
 sudo firewall-cmd --get-zones
@@ -91,21 +89,19 @@ Using the `--permanent` option makes the changes permanent, meaning they will be
 
 ## 📖 Interacting with Firewalld
 
-::: tip
-Keep in mind that sudo privileges are required for firewall modification commands.
-:::
+::: tip Keep in mind that sudo privileges are required for firewall modification commands. :::
 
 ### ➡️ Adding / removing temporary rules
 
 Here are some basic patterns for adding and removing rules temporarily or permanently:
 
-- To add a service to the default zone temporarily, use the command:
+* To add a service to the default zone temporarily, use the command:
 
 ```
 sudo firewall-cmd --add-service=<service-name>
 ```
 
-- To remove a service from the default zone temporarily, use the command:
+* To remove a service from the default zone temporarily, use the command:
 
 ```
 sudo firewall-cmd --remove-service=<service-name>
@@ -113,13 +109,13 @@ sudo firewall-cmd --remove-service=<service-name>
 
 ### ➡️ Adding / removing permanent rules
 
-- To add a service to the default zone permanently, use the command:
+* To add a service to the default zone permanently, use the command:
 
 ```
 sudo firewall-cmd --permanent --add-service=<service-name>
 ```
 
-- To remove a service from the default zone permanently, use the command:
+* To remove a service from the default zone permanently, use the command:
 
 ```
 sudo firewall-cmd --permanent --remove-service=<service-name>
@@ -135,8 +131,7 @@ List the current active zone (by default it is `public` zone), along with any co
 sudo firewall-cmd --list-all
 ```
 
-::: details
-Example:
+::: details Example:
 
 ```
 public (active)
@@ -179,17 +174,13 @@ sudo firewall-cmd --info-zone=<zone> command
 
 ### ➡️ Services: list active services
 
-List of services that are currently allowed in the public zone.
-::: tip
-If no services are allowed in the zone, the output will be empty. In example we have output for default AlmaLinux settings.
-:::
+List of services that are currently allowed in the public zone. ::: tip If no services are allowed in the zone, the output will be empty. In example we have output for default AlmaLinux settings. :::
 
 ```
 sudo firewall-cmd --zone=public --list-services
 ```
 
-::: details
-Example:
+::: details Example:
 
 ```
 cockpit dhcpv6-client ssh
@@ -197,16 +188,13 @@ cockpit dhcpv6-client ssh
 
 :::
 
-::: tip
-Replace `public` with the name of any other zone that you want to check.
-:::
+::: tip Replace `public` with the name of any other zone that you want to check. :::
 
 ## 🔖 Configuring
 
 ::: warning
 
-If on remote connection (`ssh`)
-**Do not to block all incoming traffic**, it will cut you out from the remote system.
+If on remote connection (`ssh`) **Do not to block all incoming traffic**, it will cut you out from the remote system.
 
 ```
 DANGEROUS firewall-cmd --set-default-zone=drop  <--- dissallows ssh!
@@ -230,8 +218,7 @@ cockpit dhcpv6-client ssh
 
 ### ➡️ Selecting Zones for Interfaces
 
-By default, each network interface is assigned to the default zone when the firewall is booted.
-To change the zone of an interface during a session using the `--zone=` parameter with the `--change-interface=` parameter.
+By default, each network interface is assigned to the default zone when the firewall is booted. To change the zone of an interface during a session using the `--zone=` parameter with the `--change-interface=` parameter.
 
 For example, to transition the eth0 interface to the `work` zone, use the following command:
 
@@ -241,9 +228,7 @@ sudo firewall-cmd --zone=work--change-interface=eth0
 
 ### ➡️ Changing the Default Zone
 
-If you want to handle all your interfaces with a single zone, it's recommended to select the appropriate default zone for your configuration.
-To change the default zone, use the `--set-default-zone=` parameter followed by the desired zone name.
-This command will immediately update any interface using the default zone.
+If you want to handle all your interfaces with a single zone, it's recommended to select the appropriate default zone for your configuration. To change the default zone, use the `--set-default-zone=` parameter followed by the desired zone name. This command will immediately update any interface using the default zone.
 
 For example, to set the default zone to "home", use the following command:
 
@@ -251,8 +236,7 @@ For example, to set the default zone to "home", use the following command:
 sudo firewall-cmd --set-default-zone=home
 ```
 
-:::details
-Example:
+:::details Example:
 
 ```
 success
@@ -301,7 +285,7 @@ Table below lists common services and ports that can be used with the `firewall-
 | RDP                   | Remote Desktop Protocol               | rdp           | TCP      | 3389       |
 | SMB                   | Server Message Block                  | smb           | TCP      | 445        |
 | VNC server            | Virtual Network Computing Server      | vnc-server    | TCP      | 5900       |
-| **Other Services**    |
+| **Other Services**    |                                       |               |          |            |
 | IMAPS                 | Secure IMAP                           | imaps         | TCP      | 993        |
 | HTTPS Alternate       | HTTPS Alternate                       | https-alt     | TCP      | 8443       |
 | LPD                   | Line Printer Daemon                   | lpd           | TCP      | 515        |
@@ -317,8 +301,7 @@ Table below lists common services and ports that can be used with the `firewall-
 
 This is not an exhaustive list, and the service names, protocols, and ports may vary depending on your specific system configuration.
 
-::: tip
-In GNU/Linux systems the `/etc/services` file contains the list of TCP & UDP network services. `grep` it to find interesting data.
+::: tip In GNU/Linux systems the `/etc/services` file contains the list of TCP & UDP network services. `grep` it to find interesting data.
 
 ```
 grep mysql /etc/services
@@ -343,11 +326,11 @@ mysql-proxy     6446/udp                # MySQL Proxy
 
 ## 📚 Further Reading and Next Steps
 
-<u>In-depth Resources:</u>
+In-depth Resources:
 
-- Firewalld Series ❯ [Advanced Configuration Guide](#) 🚧 -- Work In Progress (5/15) -- HELP NEEDED: psuchanecki@almalinux.org
+* Firewalld Series ❯ [Advanced Configuration Guide](SystemSeriesA02.md) 🚧 -- Work In Progress (5/15) -- HELP NEEDED: psuchanecki@almalinux.org
 
-<u>Related Resources:</u>
+Related Resources:
 
-- AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
-- AlmaLinux System Series ❯ [Application Streams](SystemSeriesA01.md)
+* AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
+* AlmaLinux System Series ❯ [Application Streams](SystemSeriesA01.md)

@@ -1,13 +1,13 @@
 # A01 ❯ Application Streams
 
-<small>ℹ️ This article is part of AlmaLinux [System Series](/series/).</small>
+ℹ️ This article is part of AlmaLinux [System Series](../../series/).
 
-<hr>
-| 💡 | Experience Level  | ⭐☆☆☆☆ |
-|--- | --------- | --------|
-| 📆 | <small>Last modified </small>| 2023-05-16
-| 🔧 | <small>Tested by <br> ↳ version \| platform \| date </small>| <small>[Pawel Suchanecki](mailto:psuchanecki@almalinux.org) <br>  ↳ 9.1 \| x86_64 \| 2023-04-21 </small>|
-<br>
+***
+
+\| 💡 | Experience Level | ⭐☆☆☆☆ | |--- | --------- | --------| | 📆 | Last modified | 2023-05-16 | 🔧 | Tested by\
+↳ version \\| platform \\| date | \[Pawel Suchanecki]\(mailto:psuchanecki@almalinux.org)\
+↳ 9.1 \\| x86\_64 \\| 2023-04-21 |\
+
 
 ## 🌟 Introduction
 
@@ -21,16 +21,15 @@ The AppStream repository contains both modular and non-modular packages. Non-mod
 
 ### AppStream Modularity
 
-AppStream's modular design ensures the delivery of software packages as independent modules, each with its own release schedule and lifecycle. This approach facilitates the provision of new features and updates for applications without necessitating a complete operating system upgrade. By incorporating both modular and non-modular packages, AppStream provides users with a wide variety of software options while maintaining system stability, compatibility, and security.
-AppStream modules provide a cohesive and tested set of packages that work together and ensure that all necessary packages are installed and configured correctly.
+AppStream's modular design ensures the delivery of software packages as independent modules, each with its own release schedule and lifecycle. This approach facilitates the provision of new features and updates for applications without necessitating a complete operating system upgrade. By incorporating both modular and non-modular packages, AppStream provides users with a wide variety of software options while maintaining system stability, compatibility, and security. AppStream modules provide a cohesive and tested set of packages that work together and ensure that all necessary packages are installed and configured correctly.
 
 ## 📝 Key Takeaways
 
 To use AppStream modules in your AlmaLinux environment, you need to understand the following fundamental concepts:
 
-- **Modules**: A module is a set of RPM packages that represent a component and are usually installed together. A typical module includes packages with the application, application-specific dependency libraries, documentation, and helper utilities.
-- **Streams**: A stream is a version of a module. A module can have multiple streams that represent different versions of the same component.
-- **Profiles**: A profile is a set of streams for a module. Each profile represents a specific use case or workload.
+* **Modules**: A module is a set of RPM packages that represent a component and are usually installed together. A typical module includes packages with the application, application-specific dependency libraries, documentation, and helper utilities.
+* **Streams**: A stream is a version of a module. A module can have multiple streams that represent different versions of the same component.
+* **Profiles**: A profile is a set of streams for a module. Each profile represents a specific use case or workload.
 
 ## 📖 Version Specific Examples
 
@@ -38,12 +37,7 @@ To use AppStream modules in your AlmaLinux environment, you need to understand t
 
 `sudo dnf module install nginx:<stream>/<profile>`
 
-::: tip
-There is a substantially greater number of AppStream modules available for the AlmaLinux 8.x series compared to the 9.x series.
-:::
-:::warning
-Below we show list of modules available for each (major) AlmaLinux release.
-:::
+::: tip There is a substantially greater number of AppStream modules available for the AlmaLinux 8.x series compared to the 9.x series. ::: :::warning Below we show list of modules available for each (major) AlmaLinux release. :::
 
 ### 🔖 AlmaLinux 8.7
 
@@ -175,12 +169,12 @@ Hint: [d]efault, [e]nabled, [x]disabled, [i]nstalled
 
 ## 📚 Further Reading and Next Steps
 
-<u>In-depth Resources:</u>
+In-depth Resources:
 
-- [Introduction of Application Streams (RHEL 8)](https://www.redhat.com/en/blog/introduction-appstreams-and-modules-red-hat-enterprise-linux)
-- [Application Streams Considerations (RHEL 9)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/considerations_in_adopting_rhel_9/ref_application-streams_considerations-in-adopting-rhel-9)
+* [Introduction of Application Streams (RHEL 8)](https://www.redhat.com/en/blog/introduction-appstreams-and-modules-red-hat-enterprise-linux)
+* [Application Streams Considerations (RHEL 9)](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/considerations_in_adopting_rhel_9/ref_application-streams_considerations-in-adopting-rhel-9)
 
-<u>Related Resources:</u>
+Related Resources:
 
-- AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
-- AlmaLinux Firewalld Series ❯ [A Beginner's Guide](SystemSeriesA02.md)
+* AlmaLinux Nginx Series ❯ [A Beginner's Guide](../nginx/NginxSeriesA01.md)
+* AlmaLinux Firewalld Series ❯ [A Beginner's Guide](SystemSeriesA02.md)

@@ -1,13 +1,13 @@
 # A04 ❯ Secure Nginx Deployment
 
-<small>ℹ️ This article is part of AlmaLinux [Nginx Series](/series/).</small>
+ℹ️ This article is part of AlmaLinux [Nginx Series](../../series/).
 
-<hr>
-| 💡 | Experience Level  | ⭐☆☆☆☆ |
-|--- | --------- | --------|
-| 📆 | <small>Last modified </small>| 2023-05-16
-| 🔧 | <small>Tested by <br> ↳ version \| platform \| date </small>| <small>[Pawel Suchanecki](mailto:psuchanecki@almalinux.org) <br>  ↳ 9.1 \| x86_64 \| 2023-04-21 </small>|
-<br>
+***
+
+\| 💡 | Experience Level | ⭐☆☆☆☆ | |--- | --------- | --------| | 📆 | Last modified | 2023-05-16 | 🔧 | Tested by\
+↳ version \\| platform \\| date | \[Pawel Suchanecki]\(mailto:psuchanecki@almalinux.org)\
+↳ 9.1 \\| x86\_64 \\| 2023-04-21 |\
+
 
 ## 🌟 Introduction
 
@@ -59,8 +59,7 @@ Monitoring your Nginx server logs can help you detect and respond to security in
 
 ### Step 1: Check The Firewalld Configuration
 
-:::warning
-On AlmaLinux OS, the Firewalld packet filtering service is enabled by default.
+:::warning On AlmaLinux OS, the Firewalld packet filtering service is enabled by default.
 
 :::
 
@@ -78,8 +77,7 @@ sudo firewall-cmd --reload
 
 ### Step 2: Enable SSL/TLS Encryption
 
-Encrypting your web traffic using SSL/TLS is an essential step in securing your Nginx installation. To enable SSL/TLS encryption, you will need to obtain an SSL certificate and configure Nginx to use it.
-One way to obtain an SSL certificate is to use Let's Encrypt, a free, automated, and open certificate authority.
+Encrypting your web traffic using SSL/TLS is an essential step in securing your Nginx installation. To enable SSL/TLS encryption, you will need to obtain an SSL certificate and configure Nginx to use it. One way to obtain an SSL certificate is to use Let's Encrypt, a free, automated, and open certificate authority.
 
 To install Let's Encrypt on AlmaLinux 9.x, run the following command:
 
@@ -87,8 +85,7 @@ To install Let's Encrypt on AlmaLinux 9.x, run the following command:
 sudo dnf install certbot python3-certbot-nginx
 ```
 
-::: tip
-The `python3-certbot-nginx` package is from EPEL repository, so if you get error to the above, just do:
+::: tip The `python3-certbot-nginx` package is from EPEL repository, so if you get error to the above, just do:
 
 ```
 dnf install epel-release
@@ -113,8 +110,7 @@ Successfully deployed certificate for almalinux.example.com to /etc/nginx/nginx.
 Congratulations! You have successfully enabled HTTPS on https://almalinux.example.com
 ```
 
-::: tip
-After successful configuration, '/etc/nginx/nginx.conf' will contain these new lines:
+::: tip After successful configuration, '/etc/nginx/nginx.conf' will contain these new lines:
 
 :::details
 
@@ -140,8 +136,7 @@ After successful configuration, '/etc/nginx/nginx.conf' will contain these new l
 
 :::
 
-:::warning
-If you get this weird error:
+:::warning If you get this weird error:
 
 ```
 ...
@@ -160,41 +155,35 @@ Please check if you have FIPS mode enabled which prevents 'unauthorized' uses of
 fips-mode-setup --check
 ```
 
-Should tell you:
-`FIPS mode is disabled.`
+Should tell you: `FIPS mode is disabled.`
 
 If does not you need to disable the FIPS for the time of generation:
 
-- Disable it:
+* Disable it:
 
 ```
 fips-mode-setup --disable
 ```
 
-- Reboot the system!
-  &nbsp;
-- Regenerate the certificate (or just reinstall - `certbot` will offer that option when runs again) with the command that previously failed (above).
-- Renable FIPS:
+* Reboot the system! &#x20;
+* Regenerate the certificate (or just reinstall - `certbot` will offer that option when runs again) with the command that previously failed (above).
+* Renable FIPS:
 
 ```
 fips-mode-setup --enable
 ```
 
-- Reboot the system!
-  :::
+* Reboot the system! :::
 
 #### Check if that works!
 
-Navigate your browser to your site with `https` protocol prefix.
-(Like: https://almalinux.example.com). <u>Now the connection is encrypted</u>(🔒).
+Navigate your browser to your site with `https` protocol prefix. (Like: https://almalinux.example.com). Now the connection is encrypted(🔒).
 
 ### Step 3: Implement User Authentication
 
 If you want to restrict access to your Nginx server, you can implement user authentication using the `htpasswd` tool.
 
-::: tip
-`htpasswd` manages user accounts and passwords for accessing restricted areas of your website, helping to add basic authentication to your Nginx server and control access to specific areas of your site.
-:::
+::: tip `htpasswd` manages user accounts and passwords for accessing restricted areas of your website, helping to add basic authentication to your Nginx server and control access to specific areas of your site. :::
 
 To do this, run the following command to install `httpd-tools` package:
 
@@ -256,9 +245,7 @@ This configuration will limit requests to one request per second per IP address,
 
 Note: both can be added to `http` block.
 
-:::details
-For more info on rate limitting please read **[ a dedicated blog post Nginx.org ](https://www.nginx.com/blog/rate-limiting-nginx/)**
-:::
+:::details For more info on rate limitting please read [**a dedicated blog post Nginx.org** ](https://www.nginx.com/blog/rate-limiting-nginx/):::
 
 ### Step 5: Disable Server Tokens
 
@@ -311,8 +298,7 @@ I also tried with the user www-data, but the issue persists.
 
 **A:**
 
-1. **Reproduce the problem**
-   This issue is likely related to SELinux blocking access to the directory. To confirm if it's an SELinux issue, temporarily disable SELinux by running
+1. **Reproduce the problem** This issue is likely related to SELinux blocking access to the directory. To confirm if it's an SELinux issue, temporarily disable SELinux by running
 
 ```
 sudo setenforce 0
@@ -324,9 +310,7 @@ then try loading the directory again.
 
 If this resolves the issue, you will need to adjust the context of the directory to allow Nginx access or use `audit2allow` to identify a SELinux boolean that can be changed.
 
-:::tip
-`audit2allow` - generate SELinux policy allow/dontaudit rules from logs of denied operations
-:::
+:::tip `audit2allow` - generate SELinux policy allow/dontaudit rules from logs of denied operations :::
 
 3. **Fix the SELinux issue**
 
@@ -348,16 +332,16 @@ sudo setenforce 1
 
 ## 📚 Further reading and Next Steps
 
-<u>Get Back:</u>
+Get Back:
 
-- AlmaLinux Nginx Series ❯ [A Beginner's Guide](NginxSeriesA01.md)
-- AlmaLinux Nginx Series ❯ [AlmaLinux OS 8.x Installation](NginxSeriesA01R8.md)
-- AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.1 Installation](NginxSeriesA02R91.md)
-- AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.2 Installation](NginxSeriesA02R92.md)
+* AlmaLinux Nginx Series ❯ [A Beginner's Guide](NginxSeriesA01.md)
+* AlmaLinux Nginx Series ❯ [AlmaLinux OS 8.x Installation](NginxSeriesA01R8.md)
+* AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.1 Installation](NginxSeriesA02R91.md)
+* AlmaLinux Nginx Series ❯ [AlmaLinux OS 9.2 Installation](NginxSeriesA02R92.md)
 
-<u>In-depth Resources:</u>
+In-depth Resources:
 
-<u>Related Resources:</u>
+Related Resources:
 
-- AlmaLinux Firewalld Series ❯ [A Beginner's Guide](../system/SystemSeriesA02.md)
-- AlmaLinux System Series ❯ [Application Streams](../system/SystemSeriesA01.md)
+* AlmaLinux Firewalld Series ❯ [A Beginner's Guide](../system/SystemSeriesA02.md)
+* AlmaLinux System Series ❯ [Application Streams](../system/SystemSeriesA01.md)
